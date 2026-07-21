@@ -55,6 +55,7 @@
   border-color: rgb(13, 47, 197);
   border-radius: 5px;
   padding: 10px;
+  color:white;
 }
 .input-set p:nth-child(2) {
   margin-left: auto;
