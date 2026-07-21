@@ -26,13 +26,14 @@ export default function App() {
 function ProgressBox({ todos }) {
   const totalTodos = todos.length;
   const completedTodos = todos.filter(todo => todo.isCompleted).length;
+  const progressPercent = (completedTodos / totalTodos) * 100;
   return (
     <div className="progress-box">
       <div className="todo-text">
         <h1>Todo App</h1>
         <p>Keep it up!</p>
         <div className="progress-bar-container">
-          <div className="progress-bar"></div>
+          <div className="progress-bar" style={{ width: `${progressPercent}%`}}></div>
         </div>
       </div>
       <div className="todo-circle">{completedTodos}/{totalTodos}</div>

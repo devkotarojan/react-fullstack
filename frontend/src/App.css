@@ -28,7 +28,7 @@
 }
 .progress-bar {
   height: 13px;
-  width: 50%;
+  border-radius: 10px;
   background-color: rgb(13, 87, 197);
 }
 .todo-circle {
