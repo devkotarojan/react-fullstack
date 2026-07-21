@@ -24,6 +24,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+  overflow:hidden;
+}
+.progress-bar {
+  height: 13px;
+  width: 50%;
+  background-color: rgb(13, 87, 197);
 }
 .todo-circle {
   background-color:rgb(13, 47, 197);
