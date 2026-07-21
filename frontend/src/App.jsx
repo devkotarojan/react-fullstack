@@ -16,14 +16,16 @@ export default function App() {
   const [todos, setTodos] = useState(todoList);
   return (
     <>
-      <ProgressBox />
+      <ProgressBox todos={todos}/>
       <TodoInputBox todos={todos} setTodos={setTodos}/>
       <TodoList todos={todos} setTodos={setTodos}/>
     </>
   );
 }
 
-function ProgressBox() {
+function ProgressBox({ todos }) {
+  const totalTodos = todos.length;
+  const completedTodos = todos.filter(todo => todo.isCompleted).length;
   return (
     <div className="progress-box">
       <div className="todo-text">
@@ -33,7 +35,7 @@ function ProgressBox() {
           <div className="progress-bar"></div>
         </div>
       </div>
-      <div className="todo-circle">0/0</div>
+      <div className="todo-circle">{completedTodos}/{totalTodos}</div>
     </div>
   );
 }
