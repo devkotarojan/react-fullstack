@@ -85,10 +85,16 @@
   padding-bottom: 12px;
   padding-left: 15px;
   padding-right: 15px;
+  align-items: center;
 }
 .single-todo input:nth-child(1) {
   width: 20px;
   margin-right: 15px;
+}
+.single-todo p:nth-child(2) {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  margin-right: 8px;
 }
 .single-todo p:nth-child(3) {
   margin-left: auto;
