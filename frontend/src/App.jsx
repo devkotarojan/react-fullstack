@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 
 export default function App() {
@@ -26,13 +27,30 @@ function ProgressBox() {
 }
 
 function TodoInputBox() {
-  function getText() {
-    console.log("changed.");
-  }
+  const [inputText, setinputText] = useState('');
+  
   return (
     <div className="input-set">
-      <input type="text" onChange={getText} placeholder='Write your task' className="input-box"></input>
-      <p>+</p>
+      <input 
+        type="text" 
+        placeholder='Write your task' className="input-box"
+        value={inputText}
+        onChange={event => {
+          setinputText(event.target.value);
+        }}
+        onKeyDown={event => {
+          if (event.key === 'Enter') {
+            console.log(inputText);
+            setinputText('');
+          }
+        }}>
+      </input> 
+      <p
+        onClick={() => {
+          console.log(inputText)
+          setinputText('');
+          }}>+</p>
+        
     </div>
   )
 }
