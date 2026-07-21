@@ -18,7 +18,7 @@ export default function App() {
     <>
       <ProgressBox />
       <TodoInputBox todos={todos} setTodos={setTodos}/>
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} setTodos={setTodos}/>
     </>
   );
 }
@@ -83,16 +83,42 @@ function TodoInputBox({ todos, setTodos }) {
   )
 }
 
-function TodoList({ todos }) {
+function TodoList({ todos, setTodos }) {
+  const handleCheckbox = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {...todo, isCompleted: !todo.isCompleted};
+        }
+        return todo;
+      })
+    );
+  }
+  
+  const handleDelete = (id) => {
+    setTodos(
+      todos.filter((todo => todo.id != id))
+    );
+  }
+  
   return (
     <div className="todo-list">
       {todos.map((todo) => {
         return (
           <div className="single-todo" key={todo.id}>
-            <input type="checkbox" checked={todo.isCompleted} readOnly></input>
+            <input 
+              type="checkbox" 
+              checked={todo.isCompleted}
+              onChange={() => {
+                handleCheckbox(todo.id);
+              }}>
+            </input>
             <p>{todo.text}</p>
             <p>✏️</p>
-            <p>❌</p>
+            <p
+              onClick={() => {
+                handleDelete(todo.id);
+              }}>❌</p>
           </div>
         );
       })}
