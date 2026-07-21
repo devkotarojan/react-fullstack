@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import './App.css'
 
+//Initial Todos
+const todos = [{
+  text: "make dinner and what happens when the thing overflows I have no idea that is why Im testing it",
+  isCompleted: true,
+  id: crypto.randomUUID()
+},{
+  text: "wash dishes",
+  isCompleted: false,
+  id: crypto.randomUUID()
+}]
+
 export default function App() {
   return (
     <>
       <ProgressBox />
       <TodoInputBox />
-      <TodoList />
+      <TodoList todos={todos}/>
     </>
   );
 }
@@ -55,20 +66,10 @@ function TodoInputBox() {
   )
 }
 
-function TodoList() {
-  const todoList = [{
-    text: "make dinner and what happens when the thing overflows I have no idea that is why Im testing it",
-    isCompleted: true,
-    id: crypto.randomUUID()
-  },{
-    text: "wash dishes",
-    isCompleted: false,
-    id: crypto.randomUUID()
-  }]
-  
+function TodoList({ todos }) {
   return (
     <div className="todo-list">
-      {todoList.map((todo) => {
+      {todos.map((todo) => {
         return (
           <div className="single-todo" key={todo.id}>
             <input type="checkbox" checked={todo.isCompleted} readOnly></input>
