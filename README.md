@@ -1,3 +1,4 @@
+![React Todo App Demo](https://github.com/user-attachments/assets/63531d6a-2c27-49dd-a247-28cc88085fe1)
 # React and FastAPI full-stack Todo App
 A fullstack todo application with react frontend and FastAPI backend
 
