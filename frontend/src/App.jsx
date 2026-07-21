@@ -36,7 +36,7 @@ function TodoInputBox() {
 
 function TodoList() {
   const todoList = [{
-    text: "make dinner",
+    text: "make dinner and what happens when the thing overflows I have no idea that is why Im testing it right nowssssssssssssssssssssssssssssssssssssssssssss",
     isCompleted: true,
     id: crypto.randomUUID()
   },{
