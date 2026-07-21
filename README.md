@@ -20,5 +20,5 @@ Make sure you have the following installed on your machine:
 - [uv](https://github.com/astral-sh/uv)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/63531d6a-2c27-49dd-a247-28cc88085fe1" alt="React Todo App Demo" width="650" />
+  <img src="https://github.com/user-attachments/assets/63531d6a-2c27-49dd-a247-28cc88085fe1" alt="React Todo App Demo" width="450" />
 </p>
