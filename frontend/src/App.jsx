@@ -28,7 +28,7 @@ function ProgressBox() {
 function TodoInputBox() {
   return (
     <div className="input-set">
-      <input type="text" placeholder='Write your task' class="input-box"></input>
+      <input type="text" placeholder='Write your task' className="input-box"></input>
       <p>+</p>
     </div>
   )
@@ -49,7 +49,7 @@ function TodoList() {
     <div className="todo-list">
       {todoList.map((todo) => {
         return (
-          <div className="single-todo" id={todo.id}>
+          <div className="single-todo" key={todo.id}>
             <input type="checkbox" checked={todo.isCompleted}></input>
             <p>{todo.text}</p>
             <p>✏️</p>
