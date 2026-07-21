@@ -93,17 +93,36 @@ function TodoList({ todos, setTodos }) {
         return todo;
       })
     );
-  }
+  };
   
   const handleDelete = (id) => {
     setTodos(
       todos.filter((todo => todo.id != id))
     );
-  }
+  };
+  
+  //To edit the text
+  const  [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState('');
+  
+  const handleStartEdit = (todo) => {
+    setEditingId(todo.id);
+    setEditText(todo.text);
+  };
+  
+  const handleSaveEdit = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        return todo.id === id ? {...todo, text: editText} : todo
+      })
+    );
+    setEditingId(null);
+  };
   
   return (
     <div className="todo-list">
       {todos.map((todo) => {
+        const isEditing = editingId === todo.id;
         return (
           <div className="single-todo" key={todo.id}>
             <input 
@@ -113,8 +132,25 @@ function TodoList({ todos, setTodos }) {
                 handleCheckbox(todo.id);
               }}>
             </input>
+            {isEditing ? (
+              <input
+              type="text"   
+              value={editText}
+              onChange={event => {
+                setEditText(event.target.value);
+              }}
+              
+              onKeyDown={event => {
+                if ((event.key === 'Enter') && (editText != '')) {
+                  handleSaveEdit(todo.id); 
+              }}}/> ) : (
             <p>{todo.text}</p>
-            <p>✏️</p>
+              )
+            }
+            <p
+              onClick={() => {
+                handleStartEdit(todo);
+              }} >✏️</p>
             <p
               onClick={() => {
                 handleDelete(todo.id);
