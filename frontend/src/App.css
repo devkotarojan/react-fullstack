@@ -1,0 +1,72 @@
+/*ProgressBox*/
+.progress-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 450px;
+  border: solid 2px;
+  border-radius: 15px;
+  border-color: rgb(13, 47, 197);
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: clamp(2rem, 7vw, 5rem);
+}
+.todo-text{
+  flex: 1;
+}
+.progress-bar-container {
+  background-color: rgb(11, 11, 66);
+  height: 13px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.todo-circle {
+  background-color:rgb(13, 47, 197);
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/*TodoInputBox*/
+.input-set {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  max-width: 450px;
+  margin-top: 40px;
+}
+.input-set input:first-child {
+  width: 88%;
+  background-color: rgb(11, 11, 66);
+  height: 2.4rem;
+  border: solid 2px;
+  border-color: rgb(13, 47, 197);
+  border-radius: 5px;
+  padding: 10px;
+}
+.input-set p:nth-child(2) {
+  margin-left: auto;
+  background-color:rgb(13, 47, 197);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 50%;
+}
+
+/*TodoList*/
+.todo-list {
+  
+}
