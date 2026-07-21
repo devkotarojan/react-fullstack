@@ -1,19 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 
-//Initial Todos
-const todoList = [{
-  text: "make dinner and what happens when the thing overflows I have no idea that is why Im testing it",
-  isCompleted: true,
-  id: crypto.randomUUID()
-},{
-  text: "wash dishes",
-  isCompleted: false,
-  id: crypto.randomUUID()
-}]
+const API_BASE_URL = 'http://127.0.0.1:8000'
 
 export default function App() {
-  const [todos, setTodos] = useState(todoList);
+  const [todos, setTodos] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/todos`)
+      .then((response) => response.json())
+      .then((data) => {
+        setTodos(data);
+        setIsLoaded(true);
+      })
+      .catch((error) => {
+        console.error("Error loading data:", error);
+      })
+  }, []);
+  
+  useEffect(() => {
+    if (!isLoaded) return;
+    fetch(`${API_BASE_URL}/todos`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(todos),
+    })
+    .then((response) => response.json())
+    .then((data) => console.log("Saved to backend:", data))
+    .catch((error) => console.error("Error saving todos:", error));
+  }, [todos, isLoaded]);
+  
   return (
     <>
       <ProgressBox todos={todos}/>
@@ -23,10 +42,14 @@ export default function App() {
   );
 }
 
+
 function ProgressBox({ todos }) {
   const totalTodos = todos.length;
   const completedTodos = todos.filter(todo => todo.isCompleted).length;
-  const progressPercent = (completedTodos / totalTodos) * 100;
+  let progressPercent = (completedTodos / totalTodos) * 100;
+  if (totalTodos === 0 && completedTodos==0) {
+    progressPercent = 0
+  }
   return (
     <div className="progress-box">
       <div className="todo-text">
