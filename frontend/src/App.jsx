@@ -133,15 +133,16 @@ function TodoList({ todos, setTodos }) {
               }}>
             </input>
             {isEditing ? (
-              <input
+              <textarea
               type="text"   
               value={editText}
+              className="edit-input-box"
               onChange={event => {
                 setEditText(event.target.value);
               }}
               
               onKeyDown={event => {
-                if ((event.key === 'Enter') && (editText != '')) {
+                if ((event.key === 'Enter' && !event.shiftKey && editText != '')) {
                   handleSaveEdit(todo.id); 
               }}}/> ) : (
             <p>{todo.text}</p>
