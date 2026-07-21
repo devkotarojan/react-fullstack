@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css'
 
 //Initial Todos
-const todos = [{
+const todoList = [{
   text: "make dinner and what happens when the thing overflows I have no idea that is why Im testing it",
   isCompleted: true,
   id: crypto.randomUUID()
@@ -13,10 +13,11 @@ const todos = [{
 }]
 
 export default function App() {
+  const [todos, setTodos] = useState(todoList);
   return (
     <>
       <ProgressBox />
-      <TodoInputBox />
+      <TodoInputBox todos={todos} setTodos={setTodos}/>
       <TodoList todos={todos}/>
     </>
   );
@@ -37,7 +38,7 @@ function ProgressBox() {
   );
 }
 
-function TodoInputBox() {
+function TodoInputBox({ todos, setTodos }) {
   const [inputText, setinputText] = useState('');
   
   return (
@@ -50,16 +51,32 @@ function TodoInputBox() {
           setinputText(event.target.value);
         }}
         onKeyDown={event => {
-          if (event.key === 'Enter') {
-            console.log(inputText);
+          if ((event.key === 'Enter') && (inputText != '')) {
+            setTodos([
+              ...todos,
+              {
+                text: inputText,
+                isCompleted: false,
+                id: crypto.randomUUID()
+              }
+            ])
             setinputText('');
           }
         }}>
       </input> 
       <p
         onClick={() => {
-          console.log(inputText)
-          setinputText('');
+          if (inputText != '') {
+            setTodos([
+              ...todos,
+              {
+                text: inputText,
+                isCompleted: false,
+                id: crypto.randomUUID()
+              }
+            ])
+            setinputText('');
+        }
           }}>+</p>
         
     </div>
