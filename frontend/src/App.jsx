@@ -147,10 +147,15 @@ function TodoList({ todos, setTodos }) {
             <p>{todo.text}</p>
               )
             }
-            <p
+            {isEditing ? <p
+              onClick={() => {
+                handleSaveEdit(todo.id);
+              }}>️💾</p> : 
+              <p
               onClick={() => {
                 handleStartEdit(todo);
-              }} >✏️</p>
+              }}>✏️</p>
+            }
             <p
               onClick={() => {
                 handleDelete(todo.id);
