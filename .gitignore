@@ -1,0 +1,13 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.python-version
+
+# Node / Vite
+node_modules/
+dist/
+
+# OS / Misc
+.DS_Store
+.env
