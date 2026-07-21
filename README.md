@@ -1,4 +1,3 @@
-![React Todo App Demo](https://github.com/user-attachments/assets/63531d6a-2c27-49dd-a247-28cc88085fe1)
 # React and FastAPI full-stack Todo App
 A fullstack todo application with react frontend and FastAPI backend
 
@@ -20,3 +19,6 @@ Make sure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/) 
 - [uv](https://github.com/astral-sh/uv)
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/63531d6a-2c27-49dd-a247-28cc88085fe1" alt="React Todo App Demo" width="650" />
+</p>
