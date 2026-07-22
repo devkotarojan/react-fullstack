@@ -1,5 +1,5 @@
 # React and FastAPI full-stack Todo App
-A fullstack todo application with react frontend and FastAPI backend
+A fullstack todo application with react frontend and FastAPI backend made from scratch but design inspired from the thumbnail of a video made by "Gowtham Tirri".
 
 ## How to run
 Make sure to open 2 VScode instances so that you can start the servers for frontend and backend individually.
